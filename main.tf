@@ -14,7 +14,7 @@ provider "proxmox" {
   pm_tls_insecure = true
 }
 
-resource "proxmox_lxc" "test-lxc" {
+resource "proxmox_lxc" "test_atlantis" {
 	vmid						= 109
   hostname        = "test-lxc"
   target_node     = "pve"
