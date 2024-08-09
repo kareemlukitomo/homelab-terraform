@@ -18,4 +18,4 @@ workflows:
       steps:
         - run: sops --decrypt gcs_credentials.json > /tmp/gcs_credentials.json
         - run: sops --decrypt secrets.tfvars | terraform init -backend-config="credentials=/tmp/gcs_credentials.json"
-        - run: sops --decrypt secrets.tfvars | terraform apply -var-file=/dev/stdin
+        - run: sops --decrypt secrets.tfvars | terraform apply -var-file=/dev/stdin -auto-approve
