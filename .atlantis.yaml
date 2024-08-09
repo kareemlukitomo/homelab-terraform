@@ -1,0 +1,21 @@
+version: 3
+projects:
+  - name: my-proxmox-project
+    dir: .
+    workflow: custom
+    autoplan:
+      when_modified: ["*.tf", "*.tfvars"]
+      enabled: true
+
+workflows:
+  custom:
+    plan:
+      steps:
+        - run: sops --decrypt gcs_credentials.json > /tmp/gcs_credentials.json
+        - run: sops --decrypt secrets.tfvars | terraform init -backend-config="credentials=/tmp/gcs_credentials.json"
+        - run: sops --decrypt secrets.tfvars | terraform plan -var-file=/dev/stdin
+    apply:
+      steps:
+        - run: sops --decrypt gcs_credentials.json > /tmp/gcs_credentials.json
+        - run: sops --decrypt secrets.tfvars | terraform init -backend-config="credentials=/tmp/gcs_credentials.json"
+        - run: sops --decrypt secrets.tfvars | terraform apply -var-file=/dev/stdin
