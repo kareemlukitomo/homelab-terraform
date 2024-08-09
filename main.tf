@@ -46,7 +46,7 @@ resource "proxmox_lxc" "test-lxc" {
   }
 }
 resource "proxmox_lxc" "test-lxc-2" {
-	vmid						= 109
+	vmid						= 110
   hostname        = "test-lxc-2"
   target_node     = "pve"
   ostemplate      = "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
