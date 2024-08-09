@@ -11,11 +11,13 @@ workflows:
   custom:
     plan:
       steps:
+        - run: 'if [ "$USER_NAME" != "kareemlukitomos" ]; then echo "Not kareemlukitomos, sorry 🤭" >&2 && exit 1; fi'
         - run: sops --decrypt gcs_credentials.json > /tmp/gcs_credentials.json
         - run: sops --decrypt secrets.tfvars | terraform init -backend-config="credentials=/tmp/gcs_credentials.json"
         - run: sops --decrypt secrets.tfvars | terraform plan -var-file=/dev/stdin
     apply:
       steps:
+        - run: 'if [ "$USER_NAME" != "kareemlukitomos" ]; then echo "Not kareemlukitomos, sorry 🤭" >&2 && exit 1; fi'
         - run: sops --decrypt gcs_credentials.json > /tmp/gcs_credentials.json
         - run: sops --decrypt secrets.tfvars | terraform init -backend-config="credentials=/tmp/gcs_credentials.json"
         - run: sops --decrypt secrets.tfvars | terraform apply -var-file=/dev/stdin -auto-approve
