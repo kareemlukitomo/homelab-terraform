@@ -18,7 +18,7 @@ resource "proxmox_lxc" "test_atlantis" {
 	vmid						= 109
   hostname        = "test-lxc"
   target_node     = "pve"
-  ostemplate      = "local:vztmpl/debian-11-standard_11.0-1_amd64.tar.gz"
+  ostemplate      = "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
 
   rootfs {
     storage     	= "local-lvm"
