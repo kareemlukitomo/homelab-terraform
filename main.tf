@@ -38,7 +38,38 @@ resource "proxmox_lxc" "test_atlantis" {
   network {
     name          = "eth1"
     bridge        = "vmbr1"
-    ip            = "10.0.1.109/24"
+    ip            = "10.0.1.111/24"
+  }
+
+  features {
+    nesting       = true
+  }
+}
+resource "proxmox_lxc" "test-lxc-2" {
+	vmid						= 110
+  hostname        = "test-lxc-2"
+  target_node     = "pve"
+  ostemplate      = "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
+
+  rootfs {
+    storage     	= "local-lvm"
+    size          = "4G"
+  }
+
+  cores           = 2
+  memory          = 512
+  swap            = 512
+
+  network {
+    name          = "eth0"
+    bridge        = "vmbr0"
+    ip            = "dhcp"
+  }
+
+  network {
+    name          = "eth1"
+    bridge        = "vmbr1"
+    ip            = "10.0.1.110/24"
   }
 
   features {
