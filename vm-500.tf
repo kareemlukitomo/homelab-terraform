@@ -1,5 +1,5 @@
 
-resource "proxmox_vm_qemu" "vm-500" {
+resource "proxmox_vm_qemu" "vm_500" {
   name                   = "alpha-0"
   full_clone             = false
   memory                 = 12288
