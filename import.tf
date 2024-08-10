@@ -5,5 +5,10 @@ import {
 
 import {
   id = "pve/qemu/500"
+  to = proxmox_vm_qemu.vm-500
+}
+
+import {
+  id = "pve/qemu/500"
   to = proxmox_vm_qemu.vm_500
 }
