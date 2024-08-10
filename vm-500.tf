@@ -60,7 +60,6 @@ resource "proxmox_vm_qemu" "vm-500" {
     mtu       = 0
     queues    = 0
     rate      = 0
-    tag       = -1
   }
   network {
     bridge    = "vmbr0"
@@ -71,7 +70,6 @@ resource "proxmox_vm_qemu" "vm-500" {
     mtu       = 0
     queues    = 0
     rate      = 0
-    tag       = -1
   }
   network {
     bridge    = "vmbr1"
@@ -82,7 +80,6 @@ resource "proxmox_vm_qemu" "vm-500" {
     mtu       = 0
     queues    = 0
     rate      = 0
-    tag       = -1
   }
 }
 
