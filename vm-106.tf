@@ -16,7 +16,7 @@ resource "proxmox_vm_qemu" "vm-106" {
   bios                   = "seabios"
   cpu                    = "host"
   onboot                 = true
-  agent                  = 0
+  agent                  = 1
   kvm                    = true
   sockets                = 1
   tablet                 = true
