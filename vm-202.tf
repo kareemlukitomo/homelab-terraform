@@ -2,7 +2,7 @@
 resource "proxmox_vm_qemu" "vm-202" {
   name                   = "homelab"
   full_clone             = false
-  memory                 = 16384
+  memory                 = 8192
   onboot                 = true
   scsihw                 = "virtio-scsi-single"
   tablet                 = true

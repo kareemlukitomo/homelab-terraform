@@ -3,7 +3,7 @@ resource "proxmox_vm_qemu" "vm-500" {
   name                   = "alpha-0"
   tags                   = "k3s"
   full_clone             = false
-  memory                 = 12288
+  memory                 = 10240
   onboot                 = true
   scsihw                 = "virtio-scsi-pci"
   tablet                 = false

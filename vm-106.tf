@@ -15,13 +15,13 @@ resource "proxmox_vm_qemu" "vm-106" {
   hotplug                = "network,disk,usb"
   bios                   = "seabios"
   cpu                    = "host"
-  onboot                 = true
+  onboot                 = false
   agent                  = 1
   kvm                    = true
   sockets                = 1
   tablet                 = true
   protection             = false
-  vm_state               = "running"
+  vm_state               = "stopped"
 
   disks {
     ide {
